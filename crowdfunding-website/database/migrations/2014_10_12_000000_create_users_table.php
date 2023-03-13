@@ -22,7 +22,10 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->uuid('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->string('photo_profile')->nullable();
+        
+
         });
     }
 
