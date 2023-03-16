@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CampaignController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,3 +34,4 @@ Route::group([
 });
 
 Route::get('profile',[AuthController::class,'me'])->middleware('auth','email_verified');
+Route::apiResource('campaign',CampaignController::class)->middleware('auth','email_verified','isAdmin');
